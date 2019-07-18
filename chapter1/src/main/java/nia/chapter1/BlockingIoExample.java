@@ -14,6 +14,10 @@ import java.net.Socket;
  */
 public class BlockingIoExample {
 
+    public static void main(String[] args) throws IOException {
+        new BlockingIoExample().serve(9322);
+    }
+
     /**
      * Listing 1.1 Blocking I/O example
      * */

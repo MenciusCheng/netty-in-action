@@ -7,6 +7,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
+import java.util.Date;
+
 /**
  * Listing 2.3 ChannelHandler for the client
  *
@@ -17,14 +19,13 @@ public class EchoClientHandler
     extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",
+        ctx.writeAndFlush(Unpooled.copiedBuffer("I am coming!",
                 CharsetUtil.UTF_8));
     }
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
-        System.out.println(
-                "Client received: " + in.toString(CharsetUtil.UTF_8));
+        System.out.println(new Date().toString() + " - Client received: " + in.toString(CharsetUtil.UTF_8));
     }
 
     @Override
